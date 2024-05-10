@@ -1,0 +1,26 @@
+/* styles.css */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav li {
+    margin-right: 10px;
+}
+
+.nav-link {
+    color: #6c757d;
+    text-decoration: none;
+}
+
+.text-end {
+    margin-left: auto;
+}

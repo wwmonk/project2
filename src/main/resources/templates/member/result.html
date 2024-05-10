@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 실패 팝업창</title>
+    <style>
+        /* 팝업창 스타일 */
+        .popup {
+            background-color: #f44336;
+            color: white;
+            padding: 15px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            text-align: center;
+            display: none;
+        }
+
+        /* 닫기 버튼 스타일 */
+        .close-btn {
+            float: right;
+            cursor: pointer;
+        }
+
+        /* 로그인 실패 메시지 스타일 */
+        .error-message {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- 팝업창 -->
+<div id="loginErrorPopup" class="popup">
+    <span class="close-btn" onclick="closePopup();">&times;</span>
+    <p class="error-message">로그인에 실패했습니다. 아이디와 비밀번호를 확인해주세요.</p>
+</div>
+
+<div style="margin-top: 50px;">
+
+</div>
+
+<script>
+    // 팝업창 닫기 함수
+    function closePopup() {
+        document.getElementById("loginErrorPopup").style.display = "none";
+    }
+
+    // 페이지 로드시 팝업창 보이기 (로그인 실패시)
+    window.onload = function() {
+        var loginSuccess = false; // 여기서는 실패 상황을 가정합니다. 로그인이 성공했을 경우 이 값을 true로 변경하세요.
+        if (!loginSuccess) {
+            document.getElementById("loginErrorPopup").style.display = "block";
+        }
+    };
+</script>
+
+</body>
+</html>
