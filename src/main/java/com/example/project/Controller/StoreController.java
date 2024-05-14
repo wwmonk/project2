@@ -1,6 +1,5 @@
 package com.example.project.Controller;
 
-import com.example.project.DTO.MemberDTO;
 import com.example.project.DTO.StoreDTO;
 import com.example.project.Service.StoreService;
 import com.example.project.Util.PaginationUtil;
@@ -12,9 +11,6 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-
-import java.security.PrivilegedExceptionAction;
 import java.util.Map;
 
 @Slf4j
@@ -48,11 +44,9 @@ public class StoreController {
     }
 
     @GetMapping("/address")
-    public String address(@PageableDefault(page = 1) Pageable pageable, Model model) {
-        Page<StoreDTO> storeDTOPage = storeService.storeList(pageable);
-        Map<String, Integer> pageData = PaginationUtil.Pagination(storeDTOPage);
-        model.addAllAttributes(pageData);
-        model.addAttribute("list", storeDTOPage);
+    public String address(Long id, Model model) {
+        StoreDTO storeDTO = storeService.read(id);
+        model.addAttribute("data", storeDTO);
 
         return "address";
     }

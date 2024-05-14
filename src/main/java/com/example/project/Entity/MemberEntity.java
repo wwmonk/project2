@@ -4,6 +4,8 @@ import com.example.project.Rolltype.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @Setter
@@ -27,4 +29,6 @@ public class MemberEntity {
     private String confirm_password;
     @Enumerated(EnumType.STRING)
     private Role role;
+    private LocalDateTime logintime;
+    private LocalDateTime logouttime;
 }
