@@ -48,4 +48,9 @@ public class BookingController {
 
         return "booking/save";
     }
+    @GetMapping("/booking/delete")
+    public String delete(Integer id) {
+        bookingService.delete(id);
+        return "redirect:/booking/list";
+    }
 }

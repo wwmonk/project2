@@ -39,7 +39,7 @@ public class SecurityConfig {
                     auth.requestMatchers("/booking/save").permitAll();
                     auth.requestMatchers("/booking/update").permitAll();
                     auth.requestMatchers("/address").permitAll();
-                    auth.requestMatchers("/test").permitAll();
+                    auth.requestMatchers("/booking/delete").permitAll();
         });
         http.formLogin(login-> login
                 .loginPage("/login")

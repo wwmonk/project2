@@ -34,6 +34,8 @@
             <td th:text="${data.num}">4</td>
             <td th:text="${data.time}">8:30</td>
             <td><a th:href="@{/booking/update(id=${data.id})}">예약수정</a>
+            <td><a th:href="@{/booking/delete(id=${data.id})}">예약취소</a>
+
         </tr>
         </tbody>
     </table>

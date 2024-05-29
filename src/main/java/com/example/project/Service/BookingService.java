@@ -52,4 +52,7 @@ public class BookingService {
         BookingDTO bookingDTO = modelMapper.map(bookingEntity, BookingDTO.class);
         return bookingDTO;
     }
+    public void delete(Integer id) {
+        bookingRepository.deleteById(id);
+    }
 }
