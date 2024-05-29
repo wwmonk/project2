@@ -17,9 +17,11 @@ public class BookingEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     @Column
-    private String name;
+    private String username;
     @Column
     private String num;
     @Column
     private String time;
+    @Column
+    private String name;
 }

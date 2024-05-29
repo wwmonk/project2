@@ -1,12 +1,17 @@
 package com.example.project.Controller;
 
+import com.example.project.DTO.BookingDTO;
 import com.example.project.DTO.MemberDTO;
 import com.example.project.Rolltype.Role;
 import com.example.project.Service.MemberService;
+import com.example.project.Util.PaginationUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
@@ -59,7 +65,11 @@ public class MemberController {
         return "redirect:/index";
     }
     @GetMapping("/main")
-    public String mainpage(){
+    public String mainpage(@PageableDefault(page = 1) Pageable pageable, Model model){
+        Page<MemberDTO> memberDTOPage = memberService.memberList(pageable);
+        Map<String, Integer> pageData = PaginationUtil.Pagination(memberDTOPage);;
+        model.addAllAttributes(pageData);
+        model.addAttribute("list", memberDTOPage);
         return "main";
     }
     @PostMapping("/logout")

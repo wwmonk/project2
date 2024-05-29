@@ -18,7 +18,7 @@ import java.util.Map;
 public class BookingController {
     private final BookingService bookingService;
     @GetMapping("/booking/list")
-    public String bookinglist(@PageableDefault(page = 1) Pageable pageable, Model model, String chfood) {
+    public String bookinglist(@PageableDefault(page = 1) Pageable pageable, Model model) {
         Page<BookingDTO> bookingDTOPage = bookingService.bookingList(pageable);
         Map<String, Integer> pageData = PaginationUtil.Pagination(bookingDTOPage);;
         model.addAllAttributes(pageData);
@@ -28,7 +28,7 @@ public class BookingController {
     @PostMapping("/booking/save")
     public String savePost(BookingDTO bookingDTO) {
         bookingService.bookingSave(bookingDTO);
-        return "redirect:/booking/list";
+        return "redirect:/main";
     }
     @GetMapping("/booking/update")
     public String update(Integer id, Model model) {

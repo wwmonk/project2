@@ -20,7 +20,5 @@ public class MemberDTO {
     private String email;
     private Role role;
     private String confirm_password;
-    private LocalDate logintime;
-    private LocalDate logouttime;
 }
 

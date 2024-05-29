@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 public class BookingDTO {
     private Integer id;
     private String name;
+    private String username;
     private String num;
     private String time;
 }

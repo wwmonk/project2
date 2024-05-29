@@ -1,12 +1,18 @@
 package com.example.project.Service;
 
+import com.example.project.DTO.BookingDTO;
 import com.example.project.DTO.MemberDTO;
+import com.example.project.Entity.BookingEntity;
 import com.example.project.Entity.MemberEntity;
 import com.example.project.Repository.MemberRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -60,5 +66,18 @@ public class MemberService {
         Optional<MemberEntity> memberEntity = memberRepository.findById(id);
         MemberDTO memberDTO = modelMapper.map(memberEntity, MemberDTO.class);
         return memberDTO;
+    }
+    public Page<MemberDTO> memberList(Pageable page) {
+        int cutPage = page.getPageNumber() - 1;
+        int pageCnt = 10;
+
+        Pageable pageable = PageRequest.of(cutPage, pageCnt,
+                Sort.by(Sort.Direction.DESC, "id"));
+        Page<MemberEntity> memberEntities = memberRepository.findAll(pageable);
+
+        Page<MemberDTO> memberDTOS = memberEntities.map(data ->
+                modelMapper.map(data, MemberDTO.class));
+
+        return memberDTOS;
     }
 }

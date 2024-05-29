@@ -28,7 +28,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="data:${list}"> <!--반복처리-->
+        <tr th:each="data:${list}" th:if="${data.upname == '일식'}"> <!--반복처리-->
             <td th:text="${data.name}" th:if="${data.upname == '일식'}">이자카야</td>
             <td th:text="${data.upname}" th:if="${data.upname == '일식'}">일식</td>
             <td th:text="${data.st}" th:if="${data.upname == '일식'}">상동</td>

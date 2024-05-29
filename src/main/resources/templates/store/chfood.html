@@ -28,7 +28,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="data:${list}">
+            <tr th:each="data:${list}" th:if="${data.upname == '중식'}">
                 <td th:text="${data.name}" th:if="${data.upname == '중식'}">중화반점</td>
                 <td th:text="${data.upname}" th:if="${data.upname == '중식'}">중식</td>
                 <td th:text="${data.st}" th:if="${data.upname == '중식'}">상동</td>
