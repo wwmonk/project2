@@ -29,6 +29,4 @@ public class MemberEntity {
     private String confirm_password;
     @Enumerated(EnumType.STRING)
     private Role role;
-    private LocalDateTime logintime;
-    private LocalDateTime logouttime;
 }

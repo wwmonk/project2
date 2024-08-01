@@ -24,4 +24,8 @@ public class BookingEntity {
     private String time;
     @Column
     private String name;
+    @ManyToOne
+    @JoinColumn(name = "store_id", referencedColumnName = "id")
+    private StoreEntity store;
+
 }

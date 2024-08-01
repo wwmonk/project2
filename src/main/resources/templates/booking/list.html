@@ -29,8 +29,8 @@
         </thead>
         <tbody>
         <tr th:each="data:${list}">
-            <td th:text="${data.username}">홍길동</td>
-            <td th:text="${data.name}">가게이름</td>
+            <td th:text="${data.storeDTO.name}">가게이름</td>
+            <td th:text="${data.name}">홍길동</td>
             <td th:text="${data.num}">4</td>
             <td th:text="${data.time}">8:30</td>
             <td><a th:href="@{/booking/update(id=${data.id})}">예약수정</a>

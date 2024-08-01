@@ -19,6 +19,7 @@
     <div class="col-sm-4">
         <H3>예약</H3>
         <form th:action="@{/booking/save}" method="post">
+            <input type="hidden" id="storeId" name="storeId" th:value="${storeId}">
             <div class="mb-3 mt-3">
                 <label for="name" class="form-label">예약자명:</label>
                 <input type="text" class="form-control" id="name" name="name">
@@ -36,6 +37,10 @@
                     <option value="20:00">20:00</option>
                     <option value="21:00">21:00</option>
                 </select>
+            </div>
+            <div class="mb-3">
+                <label for="storename" class="form-label">가게 이름:</label>
+                <input type="text" class="form-control" id="storename" name="storename" th:value="${storeName}" readonly>
             </div>
             <button type="submit" class="btn btn-primary">등록</button>
         </form>

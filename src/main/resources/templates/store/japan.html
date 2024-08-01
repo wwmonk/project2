@@ -33,7 +33,7 @@
             <td th:text="${data.upname}" th:if="${data.upname == '일식'}">일식</td>
             <td th:text="${data.st}" th:if="${data.upname == '일식'}">상동</td>
             <td th:text="${data.address}" th:if="${data.upname == '일식'}"></td>
-            <td><a th:href="@{/booking/save(id=${data.id})}" th:if="${data.upname == '일식'}">예약</a>
+            <td><a th:href="@{/booking/save(storeId=${data.id})}" th:if="${data.upname == '일식'}">예약</a>
             <td><a th:href="@{/address(id=${data.id})}" th:if="${data.upname == '일식'}">위치보기</a>
         </tr>
         </tbody>

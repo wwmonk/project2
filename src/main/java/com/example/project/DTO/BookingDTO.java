@@ -1,5 +1,6 @@
 package com.example.project.DTO;
 
+import com.example.project.Entity.StoreEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,4 +18,6 @@ public class BookingDTO {
     private String username;
     private String num;
     private String time;
+    private Long storeId;
+    private StoreDTO storeDTO;
 }

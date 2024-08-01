@@ -9,6 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface StoreRepository
-        extends JpaRepository<StoreEntity, Integer> {
+        extends JpaRepository<StoreEntity, Long> {
     Optional<StoreEntity> findById(long id);
 }
